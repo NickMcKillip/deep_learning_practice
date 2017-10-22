@@ -23,7 +23,7 @@ class ANN(object):
 	def __init__(self, hidden_layer_sizes):
 		self.hidden_layer_sizes = hidden_layer_sizes
 
-	def fit(self, X, Y, learning_rate = 10e-7, mu =0.99, decay = 0.999, reg = 10e-3 , epochs = 400, batch_sz = 128, show_fig = False):
+	def fit(self, X, Y, learning_rate = 10e-4, mu =0.99, decay = 0.999, reg = 10e-3 , epochs = 400, batch_sz = 128, show_fig = False):
 		K = len(set(Y))
 
 		# make a validation set

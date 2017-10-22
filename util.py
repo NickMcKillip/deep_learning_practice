@@ -5,12 +5,12 @@ mpl.use('TkAgg')
 import matplotlib.pyplot as plt
 
 def init_weight_and_bias(M1, M2):
-    W = np.random.randn(M1, M2) / np.sqrt(M1 + M2)
+    W = np.random.randn(M1, M2) / (np.sqrt(M1 + M2) * 2)
     b = np.zeros(M2)
     return W.astype(np.float32), b.astype(np.float32)
 
 def init_filter(shape, poolsz):
-    w = np.random.randn(*shape) /np.sqrt(np.prod(shape[1:]) + shape[0]*np.prod(shape[2:] / np.prod(poolsz)))
+    w = np.random.randn(*shape) /np.sqrt(np.prod(shape[:-1]) + shape[-1]*np.prod(shape[:-2] / np.prod(poolsz)))
     return w.astype(np.float32)
 
 def error_rate(p, t):
@@ -56,7 +56,7 @@ def getImageData():
     X, Y = getData()
     N, D = X.shape
     d = int(np.sqrt(D))
-    X = X.reshape(N, 1, d, d)
+    X = X.reshape(N, d, d, 1)
     return X, Y
 
 
