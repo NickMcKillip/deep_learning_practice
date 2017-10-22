@@ -1,4 +1,5 @@
 #Nicholas McKillip - working through the lazy programmers class on convolutional neural netwroks
+# on the fer2013 facial expression recognition dataset
 import numpy as np
 import tensorflow as tf
 import matplotlib as mpl
@@ -97,7 +98,7 @@ class CNN(object):
 		rcost = reg*sum([tf.nn.l2_loss(p) for p in self.params])
 		cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = act, labels =  tfY)) + rcost
 		predction = self.predict(tfX)
-		train_op = tf.train.RMSPropOptimizer(lr, decay = decay, momentum = mu).minimize(cost)
+		train_op = tf.train.AdamOptimizer().minimize(cost)
 
 		n_batches = int(N / batch_sz)
 		costs = []
