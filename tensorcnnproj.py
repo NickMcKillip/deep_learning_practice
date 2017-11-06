@@ -1,4 +1,4 @@
-#Nicholas McKillip - working through the lazy programmers class on convolutional neural netwroks
+#Nicholas McKillip -class on convolutional neural netwroks 
 # on the fer2013 facial expression recognition dataset
 import numpy as np
 import tensorflow as tf
